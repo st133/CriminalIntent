@@ -15,21 +15,21 @@ import java.util.List;
 import java.util.UUID;
 
 
-public class CrimePagerActivity extends AppCompatActivity {
+public class CrimeActivity extends AppCompatActivity {
     private static final String EXTRA_CRIME_ID =
             "android.bignerdranch.com.criminalintent.crime_id";
     private ViewPager mViewPager;
     private List<Crime> mCrimes;
 
     public static Intent newIntent(Context packageContext, UUID crimeId) {
-        Intent intent = new Intent(packageContext, CrimePagerActivity.class);
+        Intent intent = new Intent(packageContext, CrimeActivity.class);
         intent.putExtra(EXTRA_CRIME_ID, crimeId);
         return intent;
     }
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_crime_pager);
+        setContentView(R.layout.activity_crime);
 
         UUID crimeId = (UUID) getIntent()
                 .getSerializableExtra(EXTRA_CRIME_ID);
