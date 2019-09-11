@@ -25,7 +25,7 @@
             android:parentActivityName=".CrimeListActivity">
         </activity>
         <provider
-            android:name="android.support.v4.content.FileProvider"
+            android:name="androidx.core.content.FileProvider"
             android:authorities="android.bignerdranch.com.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
