@@ -16,7 +16,10 @@ import java.util.UUID;
 
 
 public class CrimeActivity extends AppCompatActivity {
-    private static final String EXTRA_CRIME_ID = "android.bignerdranch.com.criminalintent.crime_id";
+
+    private static final String EXTRA_CRIME_ID =
+            "com.bignerdranch.android.criminalintent.crime_id";
+
     private ViewPager mViewPager;
     private List<Crime> mCrimes;
 
@@ -25,10 +28,11 @@ public class CrimeActivity extends AppCompatActivity {
         intent.putExtra(EXTRA_CRIME_ID, crimeId);
         return intent;
     }
+
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_crime);
+        setContentView(R.layout.activity_crime);
 
         UUID crimeId = (UUID) getIntent()
                 .getSerializableExtra(EXTRA_CRIME_ID);
@@ -37,12 +41,14 @@ public class CrimeActivity extends AppCompatActivity {
 
         mCrimes = CrimeLab.get(this).getCrimes();
         FragmentManager fragmentManager = getSupportFragmentManager();
-        mViewPager.setAdapter(new FragmentStatePagerAdapter(fragmentManager, FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+        mViewPager.setAdapter(new FragmentStatePagerAdapter(fragmentManager) {
+
             @Override
             public Fragment getItem(int position) {
                 Crime crime = mCrimes.get(position);
                 return CrimeFragment.newInstance(crime.getId());
             }
+
             @Override
             public int getCount() {
                 return mCrimes.size();

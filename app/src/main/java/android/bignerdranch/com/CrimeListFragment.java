@@ -114,8 +114,8 @@ public class CrimeListFragment extends Fragment {
             mAdapter.notifyDataSetChanged();
         }
         updateSubtitle();
-        mAdapter = new CrimeAdapter(crimes);
-        mCrimeRecyclerView.setAdapter(mAdapter);
+        //mAdapter = new CrimeAdapter(crimes);
+       // mCrimeRecyclerView.setAdapter(mAdapter);
     }
 
     private class CrimeHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
